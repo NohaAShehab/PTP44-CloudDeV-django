@@ -41,4 +41,6 @@ def profile(request , id ):
 
 
 def landing(request):
-    return render(request, "students/landing.html")
+    return render(request,
+                  "students/landing.html",
+                  context={"name": "noha", "students":students } )

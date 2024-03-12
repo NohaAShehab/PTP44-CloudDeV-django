@@ -14,3 +14,7 @@ https://docs.djangoproject.com/en/5.0/ref/django-admin/
 
 5- design pattern
 https://refactoring.guru/design-patterns
+
+
+6-templates
+https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#cycle

@@ -9,6 +9,38 @@
 <body>
 <div class="container">
     <h1> django landing page </h1>
+
+    <h1> All students </h1>
+
+    {{name}}
+<!--    {{students}}-->
+
+    <table class="table ">
+        <tr> <th> ID</th> <th> Name</th> <th> image </th>
+            <th> Show</th>
+        </tr>
+
+    {% for student in students %}
+    <tr >
+        <td> {{student.id }}</td>
+           <td> {{student.name }}</td>
+           <td> {{student.image }}</td>
+<!--        <td><a class="btn btn-info" href="/students/{{student.id}}"> Show </a></td>-->
+        <td><a class="btn btn-info"
+               href="{% url 'students.profile' student.id %}"> Show </a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+
+
+
+
+
+
+
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
