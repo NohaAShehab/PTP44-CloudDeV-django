@@ -5,9 +5,12 @@
 from django.urls import path
 # import from students view
 
-from students.views import students_home
+from students.views import students_home, index, profile
 
 urlpatterns = [
 
-    path('home', students_home, name='students.home' )
+    path('home', students_home, name='students.home' ),
+    path('', index, name='students.index'),
+    path('<int:id>', profile, name='students.profile')
+
 ]
