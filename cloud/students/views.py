@@ -38,3 +38,7 @@ def profile(request , id ):
     if filtered_students:
         return HttpResponse(filtered_students[0].values())
     return HttpResponse("Student not found")
+
+
+def landing(request):
+    return render(request, "landing.html")

@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# here I must add the application I works with
+# so the template loader can see the templates folder in it
+# so you can use the models of the application
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'students',
+    'students.apps.StudentsConfig'
 ]
 
 MIDDLEWARE = [
