@@ -41,4 +41,4 @@ def profile(request , id ):
 
 
 def landing(request):
-    return render(request, "landing.html")
+    return render(request, "students/landing.html")

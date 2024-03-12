@@ -26,5 +26,6 @@ urlpatterns = [
     path('ghaza', helloGhaza, name='hello_ghaza'),
     path("tracks/home", tracks_home , name='tracks_home'),
     # import url from other url_config files
-    path('students/', include('students.urls'))
+    path('students/', include('students.urls')),
+    path('tracks/', include('tracks.urls'))
 ]
