@@ -6,3 +6,7 @@ from django.http import HttpResponse
 def helloGhaza(request):  # request param --> represent http request
     # return "hello Ghaza"
     return HttpResponse("Hello Ghaza!")
+
+
+def students_home(request):
+    return HttpResponse("<h1> Hello from students page </h1>")

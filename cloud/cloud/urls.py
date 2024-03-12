@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+
 from students.views import helloGhaza
+from tracks.views import  tracks_home
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path(url , viewfunction, name='urlname')
-    path('ghaza', helloGhaza, name='hello_ghaza')
+    path('ghaza', helloGhaza, name='hello_ghaza'),
+    path("tracks/home", tracks_home , name='tracks_home'),
+    # import url from other url_config files
+    path('students/', include('students.urls'))
 ]
