@@ -36,7 +36,10 @@ def profile(request , id ):
     filtered_students = list(filtered_students)
     print(filtered_students)
     if filtered_students:
-        return HttpResponse(filtered_students[0].values())
+        # return HttpResponse(filtered_students[0].values())
+        return render(request,
+                      'students/profile.html',
+                      context= {"student":filtered_students[0]})
     return HttpResponse("Student not found")
 
 
