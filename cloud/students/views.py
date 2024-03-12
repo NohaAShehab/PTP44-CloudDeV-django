@@ -23,10 +23,18 @@ def index(request):
     return HttpResponse(students)
 
 
-def profile(request , id ):
-    print(type(id))
-    for std in students:
-        if std['id']== id:
-            return HttpResponse(std.values())
+# def profile(request , id ):
+#     print(type(id))
+#     for std in students:
+#         if std['id']== id:
+#             return HttpResponse(std.values())
+#
+#     return HttpResponse("Student not found")
 
+def profile(request , id ):
+    filtered_students = filter(lambda student: student["id"] == id, students)
+    filtered_students = list(filtered_students)
+    print(filtered_students)
+    if filtered_students:
+        return HttpResponse(filtered_students[0].values())
     return HttpResponse("Student not found")
