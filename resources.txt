@@ -1,0 +1,16 @@
+1- install django
+https://docs.djangoproject.com/en/5.0/intro/install/
+
+2- create project
+https://docs.djangoproject.com/en/5.0/intro/tutorial01/#creating-a-project
+
+
+3- manage.py
+https://docs.djangoproject.com/en/5.0/ref/django-admin/
+
+
+4- create my first application
+ python manage.py startapp students
+
+5- design pattern
+https://refactoring.guru/design-patterns
