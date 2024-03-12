@@ -18,3 +18,7 @@ https://refactoring.guru/design-patterns
 
 6-templates
 https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#cycle
+
+
+7- static files
+https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#static

@@ -1,5 +1,5 @@
 {% extends 'layouts/base.html' %}
-
+{% load static %}
 {% block 'content' %}
     <h1> django landing page </h1>
 
@@ -17,7 +17,12 @@
     <tr >
         <td> {{student.id }}</td>
            <td> {{student.name }}</td>
-           <td> {{student.image }}</td>
+<!--           <td> {{student.image }}</td>-->
+<!--        <td> <img src="{% static 'students/images/'%}{{student.image}}"-->
+<!--       width="100" height="100"></td>-->
+
+        <td> <img src="{% static 'students/images/'|add:student.image%}"
+       width="100" height="100"></td>
 <!--        <td><a class="btn btn-info" href="/students/{{student.id}}"> Show </a></td>-->
         <td><a class="btn btn-info"
                href="{% url 'students.profile' student.id %}"> Show </a></td>
