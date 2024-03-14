@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 
 from students.models import  Student
@@ -63,3 +63,37 @@ def student_show(request, id):
     student = Student.objects.get(id=id)
     return render(request, 'students/show.html',
                   context={"student":student})
+
+
+
+def create_students(request):
+    ## request
+    print(request)
+    if request.method == 'POST':
+        print(request.POST) # to get data entered in the form
+        name = request.POST["name"]
+        age = request.POST["age"]
+        image = request.POST["image"]
+        email = request.POST['email']
+        student = Student()
+        student.name = name
+        student.age = age
+        student.email = email
+        student.image = image
+        student.save()
+
+        # return HttpResponse("object created")
+        # redirect to the index page
+        # return redirect("/students/index")
+        # reverse name to the url
+        url = reverse("students.index")
+        return redirect(url)
+
+        # students = Student.objects.all()
+        # return render(request,'students/students.html',
+        #               context={"students":students})
+
+
+
+    ## request GET
+    return render(request, 'students/create.html')

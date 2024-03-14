@@ -6,7 +6,8 @@ from django.urls import path
 # import from students view
 
 from students.views import (students_home, index,
-    profile, landing, students_index, student_show)
+    profile, landing, students_index,
+                            student_show, create_students)
 
 urlpatterns = [
 
@@ -15,6 +16,7 @@ urlpatterns = [
     path('<int:id>', profile, name='students.profile'),
     path('land', landing, name='students.land'),
     path('index', students_index, name='students.index'),
-    path('index/<int:id>', student_show, name='students.show')
+    path('index/<int:id>', student_show, name='students.show'),
+    path('create', create_students, name='students.create')
 
 ]

@@ -9,6 +9,9 @@ class Student(models.Model):
     email = models.EmailField(max_length=100, null=True, unique=True)
     image = models.CharField(max_length=100, null=True)
     age = models.IntegerField(default=10, null=True)
+    ## reflect when has been created and when has been modified
+    created_at = models.DateTimeField(auto_now_add=True, null=True) # create
+    updated_at = models.DateTimeField(auto_now=True, null=True)  # update
 
     def __str__(self):
         return f"{self.name}"

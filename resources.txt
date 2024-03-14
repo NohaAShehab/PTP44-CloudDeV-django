@@ -95,6 +95,11 @@ match the condition
 
 Student.object.get() # must return with one object .
 
+/// 1- add data to the database using my created webapp
+
+
+/// 2- upload images
+
 
 
 
