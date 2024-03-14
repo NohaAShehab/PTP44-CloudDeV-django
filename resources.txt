@@ -107,6 +107,20 @@ pip install pillow
     image = models.ImageField(upload_to='students/images/')
 
 
+3- in settings.py
+
+import os
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+4- in urls file
+
+from django.conf import settings
+from django.conf.urls.static import static
++ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+/////// cleanup package
+https://pypi.org/project/django-cleanup/
 
 
 

@@ -66,20 +66,53 @@ def student_show(request, id):
 
 
 
+# def create_students(request):
+#     ## request
+#     print(request)
+#     if request.method == 'POST':
+#         print(request.POST) # to get data entered in the form
+#         name = request.POST["name"]
+#         age = request.POST["age"]
+#         image = request.POST["image"]
+#         email = request.POST['email']
+#         student = Student()
+#         student.name = name
+#         student.age = age
+#         student.email = email
+#         student.image = image
+#         student.save()
+#
+#         # return HttpResponse("object created")
+#         # redirect to the index page
+#         # return redirect("/students/index")
+#         # reverse name to the url
+#         url = reverse("students.index")
+#         return redirect(url)
+#
+#         # students = Student.objects.all()
+#         # return render(request,'students/students.html',
+#         #               context={"students":students})
+#
+#
+#
+#     ## request GET
+#     return render(request, 'students/create.html')
+
+
 def create_students(request):
-    ## request
-    print(request)
     if request.method == 'POST':
+        ## get info about image uploaded  request.FILES
+        print(request.FILES)
         print(request.POST) # to get data entered in the form
         name = request.POST["name"]
         age = request.POST["age"]
-        image = request.POST["image"]
+        # image = request.POST["image"]
         email = request.POST['email']
         student = Student()
         student.name = name
         student.age = age
         student.email = email
-        student.image = image
+        student.image = request.FILES['image']
         student.save()
 
         # return HttpResponse("object created")
@@ -89,11 +122,15 @@ def create_students(request):
         url = reverse("students.index")
         return redirect(url)
 
-        # students = Student.objects.all()
-        # return render(request,'students/students.html',
-        #               context={"students":students})
-
-
-
-    ## request GET
+    # request GET
     return render(request, 'students/create.html')
+
+
+def student_delete(request, id):
+    student = Student.objects.get(id=id)
+    student.delete()
+    url = reverse("students.index")
+    return redirect(url)
+
+
+
