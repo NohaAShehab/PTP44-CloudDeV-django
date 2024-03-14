@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+
+    <h1> All students </h1>
+
+
+    <table class="table ">
+        <tr> <th> ID</th> <th> Name</th> <th> image </th>
+            <th> Show</th>
+        </tr>
+
+    {% for student in students %}
+    <tr >
+        <td> {{student.id }}</td>
+           <td> {{student.name }}</td>
+        <td> <img src="{% static 'students/images/'|add:student.image%}"
+       width="100" height="100"></td>
+<!--        <td><a class="btn btn-info" href="/students/{{student.id}}"> Show </a></td>-->
+        <td><a class="btn btn-info"
+               href="{% url 'students.show' student.id %}"> Show </a></td>
+
+    </tr>
+    {% endfor %}
+    </table>
+
+
+
+
+
+{% endblock %}

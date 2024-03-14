@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from students.models import  Student
 # Create your views here.
 
 # handle http request
@@ -47,3 +49,17 @@ def landing(request):
     return render(request,
                   "students/landing.html",
                   context={"name": "noha", "students":students } )
+
+
+def students_index(request):
+    students = Student.objects.all()
+    return render(request,
+                  'students/index.html',
+              context={"students":students})
+
+    # get all students from db
+
+def student_show(request, id):
+    student = Student.objects.get(id=id)
+    return render(request, 'students/show.html',
+                  context={"student":student})

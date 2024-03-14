@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block 'content' %}
+<h1> Student profile from database </h1>
+<div class="card mb-3">
+  <img src="{% static 'students/images/'|add:student.image %}"
+       width="300" height="300"
+       class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{student.name}}</h5>
+    <p class="card-text">Age: {{student.age}}.</p>
+  </div>
+</div>
+
+{% endblock %}

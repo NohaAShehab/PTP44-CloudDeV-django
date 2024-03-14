@@ -73,6 +73,37 @@ python manage.py createsuperuser;
 /// connect student model with admin dashboard
 
 
+/// how to use model to perform crud operation on the database
+pip install ipython
+python manage.py shell
+
+
+// queryset api models django
+https://docs.djangoproject.com/en/5.0/ref/models/querysets/
+
+
+/// to get data
+
+select * from students;
+
+Student.objects.all()
+
+// get students based on condition
+Student.objects.filter(name='noha')  # return queryset of objects
+match the condition
+
+
+Student.object.get() # must return with one object .
+
+
+
+
+
+
+
+
+
+
 
 
 
