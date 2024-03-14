@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from students.views import helloGhaza
 from tracks.views import  tracks_home
 urlpatterns = [
@@ -28,4 +31,5 @@ urlpatterns = [
     # import url from other url_config files
     path('students/', include('students.urls')),
     path('tracks/', include('tracks.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+### I need to define the url of the media

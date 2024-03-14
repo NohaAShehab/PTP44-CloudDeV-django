@@ -100,6 +100,14 @@ Student.object.get() # must return with one object .
 
 /// 2- upload images
 
+1- first install package
+pip install pillow
+
+2- in models
+    image = models.ImageField(upload_to='students/images/')
+
+
+
 
 
 

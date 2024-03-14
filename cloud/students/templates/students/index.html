@@ -14,7 +14,7 @@
     <tr >
         <td> {{student.id }}</td>
            <td> {{student.name }}</td>
-        <td> <img src="{% static 'students/images/'|add:student.image%}"
+        <td> <img src="{{student.image_url}}"
        width="100" height="100"></td>
 <!--        <td><a class="btn btn-info" href="/students/{{student.id}}"> Show </a></td>-->
         <td><a class="btn btn-info"

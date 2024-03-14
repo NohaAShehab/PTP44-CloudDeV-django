@@ -3,7 +3,7 @@
 {% block 'content' %}
 <h1> Student profile from database </h1>
 <div class="card mb-3">
-  <img src="{% static 'students/images/'|add:student.image %}"
+  <img src="{{student.image_url}}"
        width="300" height="300"
        class="card-img-top" alt="...">
   <div class="card-body">
@@ -11,6 +11,7 @@
     <p class="card-text">Age: {{student.age}}.</p>
     <p class="card-text">Created at: {{student.created_at}}.</p>
     <p class="card-text">Updated at: {{student.updated_at}}.</p>
+<!--    {{student.image_url}}-->
   </div>
 </div>
 

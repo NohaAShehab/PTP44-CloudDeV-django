@@ -7,7 +7,10 @@ class Student(models.Model):
     # unless you say it accepts null explicitly
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, null=True, unique=True)
-    image = models.CharField(max_length=100, null=True)
+    # image = models.CharField(max_length=100, null=True)
+    image = models.ImageField(upload_to='students/images/',
+                              null=True)
+
     age = models.IntegerField(default=10, null=True)
     ## reflect when has been created and when has been modified
     created_at = models.DateTimeField(auto_now_add=True, null=True) # create
@@ -15,4 +18,10 @@ class Student(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+
+    @property
+    def image_url(self):
+        return f'/media/{self.image}'
+
 
