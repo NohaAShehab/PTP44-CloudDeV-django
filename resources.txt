@@ -22,3 +22,75 @@ https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#cycle
 
 7- static files
 https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#static
+
+////////////////////////////////////////////////////////////
+connect to databases  ((use model do operation ))
+
+1- set connection directionals
+username: cloud
+password: iti123456789_
+
+
+2- install plugin library connect mysql server with django application
+
+pip install mysql-connector-python
+
+
+3- set connection credits in settings.py
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'cloud44',
+        'USER': 'cloud',
+        'PASSWORD': 'iti123456789_',
+        'HOST':'localhost',
+        'PORT':'3306'
+    }
+}
+
+
+//// Now I am connected to the database
+
+
+---> target --> create students table using Model //
+
+    id name image grade email
+
+https://docs.djangoproject.com/en/5.0/topics/db/models/
+
+when you run command --> python manage.py makemigrations
+
+--> django scan models in the installed apps for changes --> generate migration files
+reflect the changes in these models .
+
+
+/// create superuser of admin dashboard
+
+python manage.py createsuperuser;
+
+
+/// connect student model with admin dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
