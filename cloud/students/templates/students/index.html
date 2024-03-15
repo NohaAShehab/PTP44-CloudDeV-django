@@ -7,7 +7,7 @@
 
     <table class="table ">
         <tr> <th> ID</th> <th> Name</th> <th> image </th>
-            <th> Show</th> <th>Delete</th>
+            <th> Show</th> <th>Edit</th> <th>Delete</th>
         </tr>
 
     {% for student in students %}
@@ -19,6 +19,8 @@
 <!--        <td><a class="btn btn-info" href="/students/{{student.id}}"> Show </a></td>-->
         <td><a class="btn btn-info"
                href="{% url 'students.show' student.id %}"> Show </a></td>
+          <td><a class="btn btn-warning"
+               href="{{student.edit_url}}"> Edit </a></td>
         <td><a class="btn btn-danger"
                href="{% url 'students.delete' student.id %}"> Delete </a></td>
 

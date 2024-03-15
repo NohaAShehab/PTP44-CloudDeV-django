@@ -9,10 +9,20 @@
   <div class="card-body">
     <h5 class="card-title">{{student.name}}</h5>
     <p class="card-text">Age: {{student.age}}.</p>
+    <p class="card-text">Email: {{student.email}}.</p>
+    <h4> {{student.track}} || {{student.track.description}}</h4>
+    <h5> <a href="{{student.track.show_url}}"> {{student.track}}</a></h5>
     <p class="card-text">Created at: {{student.created_at}}.</p>
     <p class="card-text">Updated at: {{student.updated_at}}.</p>
 <!--    {{student.image_url}}-->
   </div>
 </div>
-
+<h1> Other students in  this track </h1>
+  {{student.track.students.all}}
+  {% for std in student.track.students.all %}
+      {% if std.id != student.id %}
+      <h3> <a href="{{std.show_url}}"> {{std.name}} </a></h3>
+      {% endif %}
+  {% endfor %}
 {% endblock %}
+

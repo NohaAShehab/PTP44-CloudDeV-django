@@ -161,3 +161,18 @@ def student_create_model_form(request):
 
     return render(request, 'students/forms/create.html',
                   context={"form":form})
+
+
+def edit_student(request, id):
+    student = Student.get_student_by_id(id)
+    form = StudentModelForm(instance=student) ## display old value in form fields
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect(student.show_url)
+
+    return render(request, 'students/forms/edit.html',
+                  context={"form":form})
+
+

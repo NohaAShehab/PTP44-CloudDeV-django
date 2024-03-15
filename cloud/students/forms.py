@@ -37,12 +37,25 @@ class StudentForm(forms.Form):
 class StudentModelForm(forms.ModelForm):
     class Meta:
         model= Student
-        fields = ['name', 'age', 'email', 'image']
+        # fields = ['name', 'age', 'email', 'image']
+        fields='__all__'
 
 
     def clean_email(self):
+        """ when you raise error
+        if the email already exists in another instance not in current instance
+
+        self ==> modelform
+        in case of create instance--> email ==> null
+
+        if case of edit instance --> already created instance.email != email
+
+
+        """
         email= self.cleaned_data['email']
-        if Student.objects.filter(email=email).exists():
+
+        if (Student.objects.filter(email=email).exists()
+                and self.instance.email!=email):
             raise forms.ValidationError("Email already exists")
 
         return email

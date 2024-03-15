@@ -131,6 +131,22 @@ form fields
 https://docs.djangoproject.com/en/5.0/ref/forms/fields/
 
 
+/// relationship between models
+
+relation one to many --> between track and students
+
+add track to the student model
+
+
+get students studies in the same track
+select students_student.name as student_name ,
+tracks_track.name as track_name
+from students_student, tracks_track
+where students_student.track_id= tracks_track.id and tracks_track.id=2;
+
+
+
+
 
 
 

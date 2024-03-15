@@ -8,7 +8,7 @@ from django.urls import path
 from students.views import (students_home, index,
     profile, landing, students_index,
     student_show, create_students, student_delete, student_create_form,
-                            student_create_model_form)
+    student_create_model_form, edit_student)
 
 urlpatterns = [
 
@@ -22,5 +22,6 @@ urlpatterns = [
     path('index/<int:id>/delete', student_delete, name='students.delete'),
     path('forms/create', student_create_form, name='students.forms.create'),
     path('forms/model/create', student_create_model_form,
-         name='students.modelcreate')
+         name='students.modelcreate'),
+    path('forms/edit/<int:id>',edit_student, name='students.edit' )
 ]
