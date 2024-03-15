@@ -3,16 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Student(models.Model):
-    # when create field in model ---> its default --> not null
-    # unless you say it accepts null explicitly
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, null=True, unique=True)
-    # image = models.CharField(max_length=100, null=True)
     image = models.ImageField(upload_to='students/images/',
                               null=True)
 
     age = models.IntegerField(default=10, null=True)
-    ## reflect when has been created and when has been modified
     created_at = models.DateTimeField(auto_now_add=True, null=True) # create
     updated_at = models.DateTimeField(auto_now=True, null=True)  # update
 
@@ -24,4 +20,14 @@ class Student(models.Model):
     def image_url(self):
         return f'/media/{self.image}'
 
-
+    @classmethod
+    def create_object(cls,name, email , age, image ):
+        try:
+            student = cls(name=name, email=email,image=image, age=age)
+            print(name, email, age, image)
+            student.save()
+        except Exception as e:
+            print(e)
+            return False
+        else:
+            return student

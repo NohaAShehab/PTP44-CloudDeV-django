@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 
 from students.models import  Student
+from students.forms import  StudentForm
 # Create your views here.
 
 # handle http request
@@ -105,20 +106,19 @@ def create_students(request):
         print(request.FILES)
         print(request.POST) # to get data entered in the form
         name = request.POST["name"]
-        age = request.POST["age"]
-        # image = request.POST["image"]
         email = request.POST['email']
         student = Student()
         student.name = name
-        student.age = age
-        student.email = email
-        student.image = request.FILES['image']
-        student.save()
 
-        # return HttpResponse("object created")
-        # redirect to the index page
-        # return redirect("/students/index")
-        # reverse name to the url
+        if request.POST["age"]:
+            student.age = request.POST['age']
+        student.email = email
+        try:
+            student.image = request.FILES['image']
+        except Exception as e:
+            pass
+
+        student.save()
         url = reverse("students.index")
         return redirect(url)
 
@@ -133,4 +133,21 @@ def student_delete(request, id):
     return redirect(url)
 
 
+
+def student_create_form(request):
+    form = StudentForm()
+    if request.method == 'POST':
+        form = StudentForm(request.POST, request.FILES)
+        if form.is_valid():
+            student = Student.create_object(request.POST['name'],
+                                        request.POST['email'], request.POST['age'],
+                                        request.FILES['image'])
+
+
+            url = reverse("students.index")
+            return redirect(url)
+
+
+    return render(request, 'students/forms/create.html',
+                  context={"form":form})
 

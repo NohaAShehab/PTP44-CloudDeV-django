@@ -123,6 +123,15 @@ from django.conf.urls.static import static
 https://pypi.org/project/django-cleanup/
 
 
+/// validation --> validate data
+// ---> django forms
+https://docs.djangoproject.com/en/5.0/topics/forms/
+
+form fields
+https://docs.djangoproject.com/en/5.0/ref/forms/fields/
+
+
+
 
 
 
