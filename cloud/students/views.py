@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 
 from students.models import  Student
-from students.forms import  StudentForm
+from students.forms import  StudentForm, StudentModelForm
 # Create your views here.
 
 # handle http request
@@ -102,14 +102,10 @@ def student_show(request, id):
 
 def create_students(request):
     if request.method == 'POST':
-        ## get info about image uploaded  request.FILES
-        print(request.FILES)
-        print(request.POST) # to get data entered in the form
         name = request.POST["name"]
         email = request.POST['email']
         student = Student()
         student.name = name
-
         if request.POST["age"]:
             student.age = request.POST['age']
         student.email = email
@@ -151,3 +147,17 @@ def student_create_form(request):
     return render(request, 'students/forms/create.html',
                   context={"form":form})
 
+
+
+def student_create_model_form(request):
+    form = StudentModelForm()
+
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            student = form.save()  # return saved student
+            # return HttpResponse(student.id)
+            return redirect(student.show_url)
+
+    return render(request, 'students/forms/create.html',
+                  context={"form":form})

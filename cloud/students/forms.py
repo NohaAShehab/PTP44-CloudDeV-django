@@ -1,5 +1,4 @@
 
-
 from django import forms
 from students.models import Student
 
@@ -27,9 +26,34 @@ class StudentForm(forms.Form):
 
     def clean_name(self):
         name= self.cleaned_data['name']
-
         if len(name) < 2:
              raise forms.ValidationError("Name must be at least 2 characters ")
         return name
 
 
+## generate form based on the model
+### model form ?
+
+class StudentModelForm(forms.ModelForm):
+    class Meta:
+        model= Student
+        fields = ['name', 'age', 'email', 'image']
+
+
+    def clean_email(self):
+        email= self.cleaned_data['email']
+        if Student.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already exists")
+
+        return email
+
+
+    def clean_name(self):
+        name= self.cleaned_data['name']
+        if len(name) < 2:
+             raise forms.ValidationError("Name must be at least 2 characters ")
+        return name
+
+    ## override save function
+    # def save(self, commit=True):
+    #     pass
