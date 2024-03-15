@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html'%}
+
+{% block 'content' %}
+  <h1> welcome to login page </h1>
+<form method="post">
+  {% csrf_token %}
+{{form}}
+    <input type="submit" class="btn btn-dark" value="login">
+  </form>
+{% endblock %}

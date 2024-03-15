@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'tracks.apps.TracksConfig',
     'students.apps.StudentsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'users.apps.UsersConfig'
 
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'cloud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

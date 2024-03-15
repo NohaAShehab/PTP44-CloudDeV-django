@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 
 from students.views import helloGhaza
 from tracks.views import  tracks_home
+from users.views import  profile
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path(url , viewfunction, name='urlname')
@@ -30,6 +31,8 @@ urlpatterns = [
     path("tracks/home", tracks_home , name='tracks_home'),
     # import url from other url_config files
     path('students/', include('students.urls')),
-    path('tracks/', include('tracks.urls'))
+    path('tracks/', include('tracks.urls')),
+    path('users/', include('users.urls')),
+    path('accounts/profile/',profile,  )
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ### I need to define the url of the media

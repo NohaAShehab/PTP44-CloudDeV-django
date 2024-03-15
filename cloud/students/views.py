@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from students.models import  Student
 from students.forms import  StudentForm, StudentModelForm
+
 # Create your views here.
 
 # handle http request
@@ -98,8 +99,7 @@ def student_show(request, id):
 #
 #     ## request GET
 #     return render(request, 'students/create.html')
-
-
+@login_required(login_url='/users/login')
 def create_students(request):
     if request.method == 'POST':
         name = request.POST["name"]
@@ -129,7 +129,7 @@ def student_delete(request, id):
     return redirect(url)
 
 
-
+@login_required
 def student_create_form(request):
     form = StudentForm()
     if request.method == 'POST':
