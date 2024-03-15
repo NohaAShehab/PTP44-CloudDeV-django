@@ -5,7 +5,7 @@ from students.models import Student
 
 class StudentForm(forms.Form):
     name = forms.CharField(label='Name' , max_length=100,
-                           help_text="Enter your name", widget=forms.TextInput(attrs={'class': 'form-control'}))
+            help_text="Enter your name", widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email',  max_length=100,
                         widget=forms.TextInput(attrs={'class': 'form-control'}) , help_text='Enter your email')
     age = forms.IntegerField( help_text="Enter your age", label="Age",

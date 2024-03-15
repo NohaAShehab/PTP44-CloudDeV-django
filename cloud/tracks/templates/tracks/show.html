@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html'%}
+{% load static %}
+
+
+{% block 'content' %}
+<h1> Track info  </h1>
+
+<div class="card mb-3">
+  <img src="{{track.logo_url}}"
+       width="300" height="300"
+       class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{track.name}}</h5>
+    <p class="card-text">Description: {{track.description}}.</p>
+    <p class="card-text">Created at: {{track.created_at}}.</p>
+    <p class="card-text">Updated at: {{track.updated_at}}.</p>
+  </div>
+</div>
+
+{% endblock %}
