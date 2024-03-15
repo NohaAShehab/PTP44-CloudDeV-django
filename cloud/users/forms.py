@@ -11,6 +11,9 @@ class UserModelForm(forms.ModelForm):
 
 
     def save(self, commit=True):
+        ## cleaned_data --> save in projects
+        ## project object
+        ## files __ insert insert model images
         self.instance.password= make_password(password=self.instance.password)
         super().save()
         return self.instance

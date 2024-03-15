@@ -17,6 +17,7 @@ class Student(models.Model):
     track = models.ForeignKey(Track, on_delete=models.CASCADE,
                               null=True, related_name='students')  # track is an object from models
     # database --> add column track_id
+    # images = models.ManyToManyField()
 
     def __str__(self):
         return f"{self.name}"
